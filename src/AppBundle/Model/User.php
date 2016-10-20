@@ -28,7 +28,7 @@ class User {
 			return $stmt->fetch();
 	}
 
-		public function signUp($mail, $pass) {
+		public function signIn($mail, $pass) {
 			$db = Database::getInstance();
 			$sql = "SELECT * FROM user WHERE mail = :mail";
 			$stmt = $db->prepare($sql);

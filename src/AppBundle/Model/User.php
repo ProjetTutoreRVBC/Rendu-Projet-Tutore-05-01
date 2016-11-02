@@ -26,7 +26,7 @@ class User {
 			$stmt->bindParam(':pseudo',$pseudo)
 			$stmt->execute();
 			return $stmt->fetch();
-	}
+		}
 
 		public function signIn($mail, $pass) {
 			$db = Database::getInstance();

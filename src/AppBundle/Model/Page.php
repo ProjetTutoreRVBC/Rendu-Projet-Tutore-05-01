@@ -1,7 +1,7 @@
 <?php 
 class User {
     private $idPage; 
-    private $idUser; 
+    private $ownerPage; 
 	private $descriptionPage;
 		
     public function __construct($owner, $description) {

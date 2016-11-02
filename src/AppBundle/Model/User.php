@@ -2,11 +2,11 @@
 class User {
     private $idUser; 
     private $mailUser; 
-		private $pseudoUser;
-		private $passUser;
-		private $avatarUser
-		private $channels[];
-		private $page[];
+	private $pseudoUser;
+	private $passUser;
+	private $avatarUser
+	private $channels[];
+	private $page[];
 
     public function __construct($mail, $pseudo, $pass, $avatar) {
 			$db = Database::getInstance();

@@ -1,21 +1,17 @@
 <?php 
 class User {
-    private $idUser; 
     private $mailUser; 
 	private $pseudoUser;
 	private $passUser;
-	private $avatarUser
-	private $channels[];
-	private $page[];
+	private $avatarUser;
+	private $page;
+	private $channel = array();
 
     public function __construct($mail, $pseudo, $pass, $avatar) {
-			$db = Database::getInstance();
-			$sql = "INSERT INTO user VALUES (:mail, :pseudo, :pass)";
-			$stmt = $db->prepare($sql);
-			$stmt->bindParam(':mail', $mail);
-			$stmt->bindParam(':pseudo', $pseudo);
-			$stmt->bindParam(':pass', $pass);
-			return $stmt->execute();
+			$this->mailUser = $mail;
+			$this->pseudoUser = $pseudo;
+			$this->passUser = $pass;
+			$this->avatar = $avatar;
 		}
 
 		public static function getFromPseudo( $pseudo ) {
@@ -26,6 +22,16 @@ class User {
 			$stmt->bindParam(':pseudo',$pseudo)
 			$stmt->execute();
 			return $stmt->fetch();
+		}
+
+		public function register($mail, $pseudo, $pass, $avatar) {
+			$db = Database::getInstance();
+			$sql = "INSERT INTO user VALUES (:mail, :pseudo, :pass)";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':mail', $mail);
+			$stmt->bindParam(':pseudo', $pseudo);
+			$stmt->bindParam(':pass', $pass);
+			return $stmt->execute();
 		}
 
 		public function signIn($mail, $pass) {
@@ -62,64 +68,64 @@ class User {
 			return $this->avatarUser;
 		}
 
-		public function getChannels() {
+		public function getChannels() {		//TROUVER COMMENT PEUPLER LE TABLEAU
 			$db = Database::getInstance();
-			$sql = "SELECT * FROM channel WHERE owner = :id";
+			$sql = "SELECT * FROM channel WHERE pseudo = :pseudo";
 			$stmt = $db->query($sql);
 			$stmt->setFetchMode(PDO::FETCH_CLASS, "Channel");
-			$stmt->bindParam(':id',$idUser);
+			$stmt->bindParam(':pseudo',$pseudoUser);
 			$stmt->execute(); 
 			return $stmt->fetchAll();
 		}
 
 		public function getPage() {
 			$db = Database::getInstance();
-			$sql = "SELECT * FROM page WHERE owner = :id";
+			$sql = "SELECT * FROM page WHERE owner = :pseudo";
 			$stmt = $db->query($sql);
 			$stmt->setFetchMode(PDO::FETCH_CLASS, "Page");
-			$stmt->bindParam(':id',$idUser);
+			$stmt->bindParam(':pseudo',$pseudoUser);
 			$stmt->execute();
 			return $stmt->fetchAll();
 		}
 
 		public function setMail($mail) {
 			$db = Database::getInstance();
-			$sql = "UPDATE user SET mailUser = :mail WHERE idUser = :id";
+			$sql = "UPDATE user SET mailUser = :mail WHERE pseudoUser = :pseudo";
 			$stmt = $db->prepare($sql);
 			$stmt->setFetchMode(PDO::FETCH_ASSOC);
 			$stmt->bindParam('::mail',$mail);
-			$stmt->bindParam(':id',$idUser);
+			$stmt->bindParam(':pseudo',$pseudoUser);
 			$stmt->execute();
 			$this->mailUser = $mail;
 		}
 
 		public function setPseudo($pseudo) {
 			$db = Database::getInstance();
-			$sql = "UPDATE user SET pseudoUser = :pseudo WHERE idUser = :id";
+			$sql = "UPDATE user SET pseudoUser = :pseudo WHERE pseudoUser = :pseudo";
 			$stmt = $db->prepare($sql);
 			$stmt->setFetchMode(PDO::FETCH_ASSOC);
 			$stmt->bindParam(':pseudo',$pseudo);
-			$stmt->bindParam(':id',$idUser);
+			$stmt->bindParam(':pseudo',$pseudoUser);
 			$stmt->execute();
 			$this->pseudoUser = $pseudo;
 		}
 
 		public function setPass($old,$new) {
 			$db = Database::getInstance();
-			$sql = "SELECT pass FROM user WHERE idUser = :id";
+			$sql = "SELECT pass FROM user WHERE pseudoUser = :pseudo";
 			$stmt = $db->prepare($sql);
-    		$stmt->bindParam(':id',$idUser);
+    		$stmt->bindParam(':pseudo',$pseudoUser);
     		$stmt->execute();
     		$res = $stmt->fetch();
 
 			if ($res['pass'] == $old ) {
 				if ($old != $new) {
-					$sql = "UPDATE user SET pass = :passUser WHERE idUser = :id";
+					$sql = "UPDATE user SET pass = :passUser WHERE pseudoUser = :pseudo";
 					$stmt = $db->prepare($sql);
 					$stmt->setFetchMode(PDO::FETCH_ASSOC);
 					$stmt->bindParam(':passUser',$new);
-					$stmt->bindParam(':id',$idUser);
-					$stmt->execute($new,$this->idUser);
+					$stmt->bindParam(':pseudo',$pseudoUser);
+					$stmt->execute($new,$this->pseudoUser);
 				}
    	 		}
     	if ($res['mdpU'] != $mdp ) {
@@ -130,11 +136,11 @@ class User {
 
 		public function setAvatar($avatar) {
 			$db = Database::getInstance();
-			$sql = "UPDATE user SET avatar = :avatar WHERE idUser = :id";
+			$sql = "UPDATE user SET avatar = :avatar WHERE pseudoUser = :pseudo";
 			$stmt = $db->prepare($sql);
 			$stmt->setFetchMode(PDO::FETCH_ASSOC);
 			$stmt->bindParam(':avatar',$avatar);
-			$stmt->bindParam(':id',$idUser);
+			$stmt->bindParam(':pseudo',$pseudoUser);
 			$stmt->execute();
 			$this->avatarUser = $avatar;
 		}

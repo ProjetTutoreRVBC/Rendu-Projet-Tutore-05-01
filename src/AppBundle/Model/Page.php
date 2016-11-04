@@ -1,14 +1,14 @@
 <?php 
-class User {
-    private $idPage; 
-    private $ownerPage; 
+class Page {
+    private $idPage;
+	private $user;  
 	private $descriptionPage;
 		
-    public function __construct($owner, $description) {
+    public function __construct($user, $description) {
 		$db = Database::getInstance();
-		$sql = "INSERT INTO page VALUES (:owner, :description);"
+		$sql = "INSERT INTO page VALUES (:user, :description);"
 		$stmt = $db->prepare($sql);
-		$stmt->bindParam(':owner', $owner);
+		$stmt->bindParam(':user', $user);
 		$stmt->bindParam(':description', $description);
 		return $stmt->execute();
 	}
@@ -23,12 +23,8 @@ class User {
 		return $stmt->fetch();
     }
 
-    public function getOwner() {
-        $db = Database::getInstance();
-		$sql = "SELECT pseudo FROM user WHERE idUser = :id"
-		$stmt = $db->prepare($sql);
-		$stmt->bindParam(':id', $idUser);
-		return $stmt->execute();
+    public function getOwnerName() {
+        return $this->user->getPseudo();
     }
 
 	public function getPosts() {

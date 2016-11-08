@@ -91,7 +91,7 @@ class User {
 		$sql = "UPDATE user SET mailUser = :mail WHERE pseudoUser = :pseudo";
 		$stmt = $db->prepare($sql);
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$stmt->bindParam('::mail',$mail);
+		$stmt->bindParam(':mail',$mail);
 		$stmt->bindParam(':pseudo',$pseudoUser);
 		$stmt->execute();
 		$this->mailUser = $mail;

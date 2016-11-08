@@ -51,3 +51,10 @@ create table Comment(
     foreign key(idPost) references Post(idPost),
     foreign key(nameChannel) references Channel(nameChannel),
     foreign key(idVideo) references Video(idVideo));
+
+create table SubscribedChannel(
+    idUser int,
+    idChannel int,
+    primary key(idUser,idChannel),
+    foreign key(idChannel) references Channel(idChannel),
+    foreign key(idUser) references User(idUser));

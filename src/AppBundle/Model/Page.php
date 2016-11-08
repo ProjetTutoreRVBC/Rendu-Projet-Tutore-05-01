@@ -5,6 +5,8 @@ class Page {
 	private $descriptionPage;
 		
     public function __construct($user, $description) {
+		$this->user = $user;
+		$this->description = $description;
 		$db = Database::getInstance();
 		$sql = "INSERT INTO page VALUES (:user, :description);"
 		$stmt = $db->prepare($sql);
@@ -24,7 +26,7 @@ class Page {
     }
 
     public function getOwnerName() {
-        return $this->user->getPseudo();
+        return $this->user;
     }
 
 	public function getPosts() {

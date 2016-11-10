@@ -1,4 +1,4 @@
-{# app/Resources/views/home/homepage.html.twig #}
+<!-- app/Resources/views/home/homepage.html.php -->
 <!doctype html>
 
 <head>
@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Forms</title>
-    <link rel="stylesheet" href="{{ asset('bundles/framework/css/foundation.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="<?php echo $view['assets']->getUrl('bundles/framework/css/foundation.css')?>" type="text/css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
 </head>
@@ -14,12 +14,12 @@
 <body>
     <div class="title-bar" style="height:100px;">
         <div class="title-bar-left ">
-            <img class="thumbnail " src="{{ asset('bundles/framework/images/google.gif') }}" style="width:250px;height:75px; ">
+            <img class="thumbnail " src="<?php echo $view['assets']->getUrl('bundles/framework/images/google.gif') ?>" style="width:250px;height:75px; ">
         </div>
         <div class="title-bar-right" style="height:30px;">
             <ul class="vertical menu " data-drilldown style="width:150px;height:50px; ">
                 <li>
-                    <img class="thumbnail " src="{{ asset('bundles/framework/images/profile.jpg') }}" style="width:75px;height:75px;" href="# ">
+                    <img class="thumbnail " src="<?php echo $view['assets']->getUrl('bundles/framework/images/profile.jpg') ?>" style="width:75px;height:75px;" href="# ">
                     <ul class="vertical menu ">
                         <li>
                             <a href="# ">Se déconnecter</a>
@@ -207,7 +207,7 @@
             <p>Adam Gilchrist</p>
         </div>
     </div>
-    <script src="{{ asset('bundles/framework/js/foundation') }}">
+    <script src="<?php echo $view['assets']->getUrl('bundles/framework/js')?>">
         $(document).ready(function() {
             $(document).foundation();
         })

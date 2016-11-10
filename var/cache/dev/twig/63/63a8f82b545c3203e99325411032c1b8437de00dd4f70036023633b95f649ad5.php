@@ -15,8 +15,8 @@ class __TwigTemplate_133caea6bd5dcc961b13eb48511bb90d0c97bdaed52d908a47f36839699
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_29ee708efedc1bb21ee306c35c44a05619edd9db183ef985a63523dc5f304c06 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_29ee708efedc1bb21ee306c35c44a05619edd9db183ef985a63523dc5f304c06->enter($__internal_29ee708efedc1bb21ee306c35c44a05619edd9db183ef985a63523dc5f304c06_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "home/homepage.html.twig"));
+        $__internal_b81f557d0c7ddee72b79717934e831bc9899dcab394b7fb5b5b618192ade1ab5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b81f557d0c7ddee72b79717934e831bc9899dcab394b7fb5b5b618192ade1ab5->enter($__internal_b81f557d0c7ddee72b79717934e831bc9899dcab394b7fb5b5b618192ade1ab5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "home/homepage.html.twig"));
 
         // line 2
         echo "<!doctype html>
@@ -65,7 +65,7 @@ class __TwigTemplate_133caea6bd5dcc961b13eb48511bb90d0c97bdaed52d908a47f36839699
 
 
     <ul class=\"tabs \" data-tabs id=\"tabs_example \">
-        <li class=\"tabs-panel \"><a href=\"#tab2\">Vidéastes</a></li>
+        <li class=\"tabs-title \"><a href=\"#tab2\">Vidéastes</a></li>
         <li class=\"tabs-title \"><a href=\"#tab3\">Chaînes</a></li>
         <li class=\"tabs-title \"><a href=\"#tab4\">Actualité</a></li>
         <li class=\"tabs-title \"><a href=\"#tab5\">Abonnements</a></li>
@@ -249,7 +249,7 @@ class __TwigTemplate_133caea6bd5dcc961b13eb48511bb90d0c97bdaed52d908a47f36839699
 
 </html>";
         
-        $__internal_29ee708efedc1bb21ee306c35c44a05619edd9db183ef985a63523dc5f304c06->leave($__internal_29ee708efedc1bb21ee306c35c44a05619edd9db183ef985a63523dc5f304c06_prof);
+        $__internal_b81f557d0c7ddee72b79717934e831bc9899dcab394b7fb5b5b618192ade1ab5->leave($__internal_b81f557d0c7ddee72b79717934e831bc9899dcab394b7fb5b5b618192ade1ab5_prof);
 
     }
 
@@ -316,7 +316,7 @@ class __TwigTemplate_133caea6bd5dcc961b13eb48511bb90d0c97bdaed52d908a47f36839699
 
 
     <ul class=\"tabs \" data-tabs id=\"tabs_example \">
-        <li class=\"tabs-panel \"><a href=\"#tab2\">Vidéastes</a></li>
+        <li class=\"tabs-title \"><a href=\"#tab2\">Vidéastes</a></li>
         <li class=\"tabs-title \"><a href=\"#tab3\">Chaînes</a></li>
         <li class=\"tabs-title \"><a href=\"#tab4\">Actualité</a></li>
         <li class=\"tabs-title \"><a href=\"#tab5\">Abonnements</a></li>

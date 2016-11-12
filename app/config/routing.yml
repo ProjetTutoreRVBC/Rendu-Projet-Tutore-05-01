@@ -9,3 +9,6 @@ blog_list:
 blog_show:
     path:      /blog/{slug}
     defaults:  { _controller: AppBundle:Blog:show }
+login:
+    path:      /login/
+    defaults:  { _controller: AppBundle:Security:login }    

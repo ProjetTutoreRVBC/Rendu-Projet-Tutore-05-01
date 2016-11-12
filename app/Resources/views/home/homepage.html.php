@@ -14,7 +14,10 @@
 <body>
     <?php
       $images_google=$view['assets']->getUrl('bundles/framework/images/google.gif');
-      $images_profile=$view['assets']->getUrl('bundles/framework/images/profile.jpg');      
+      $images_profile=$view['assets']->getUrl('bundles/framework/images/profile.jpg');
+      $base_url="web/app_dev/";
+      $name="test";
+      $passwd="test2";    
     ?>
     <div class="title-bar" style="height:100px;">
         <div class="title-bar-left ">
@@ -41,7 +44,7 @@
 
     <ul class="tabs " data-tabs id="tabs_example ">
         <li class="tabs-title "><a href="#tab2">Vidéastes</a></li>
-        <li class="tabs-title "><a href="#tab3">Chaînes</a></li>
+        <li class="tabs-title "><a href="feed/channel/2">Chaînes</a></li>
         <li class="tabs-title "><a href="#tab4">Actualité</a></li>
         <li class="tabs-title "><a href="#tab5">Abonnements</a></li>
         <li class="tabs-title is-active "><a href="#tab1">Tendances</a></li>

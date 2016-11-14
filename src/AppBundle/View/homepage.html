@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Forms</title>
+    <title>nostream</title>
     <link rel="stylesheet" href="css/foundation.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
@@ -20,7 +20,72 @@
             </ul>
         </div>
         <div class="top-bar-right">
-            <img class="thumbnail " src="profile.jpg " href="#item">
+            <img class="thumbnail " data-open="exampleModal1" src="profile.jpg ">
+            <div class="reveal tiny" id="exampleModal1" data-reveal>
+                <div style="float: right;">
+                    <h2>Connexion</h2>
+                    <form>
+                        <div class="row">
+                            <div class="small-8 columns">
+                                <div class="row">
+                                    <div class="small-3 columns">
+                                        <label for="right-label" class="right inline">Pseudo</label>
+                                    </div>
+                                    <div class="small-9 columns">
+                                        <input type="text" id="right-label" placeholder="pseudo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="small-8 columns">
+                                <div class="row">
+                                    <div class="small-3 columns">
+                                        <label for="right-label" class="right inline">Pass</label>
+                                    </div>
+                                    <div class="small-9 columns">
+                                        <input type="text" id="right-label" placeholder="mot de passe">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="expanded button" type="submit">Submit</button>
+                    </form>
+                </div>
+                <div style="float: left;">
+                    <h2>Inscription</h2>
+                    <form>
+                        <fieldset>
+                            <div class="row">
+                                <div class="large-4 columns">
+                                    <label>Adresse mail</label>
+                                    <input type="email" placeholder="Entrez votre adresse mail">
+                                </div>
+                                <div class="large-4 columns">
+                                    <label>Avatar</label>
+                                    <label for="exampleFileUpload" class="button">Upload File</label>
+                                    <input type="file" id="exampleFileUpload" class="show-for-sr">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-4 columns">
+                                    <label>Pseudo</label>
+                                    <input type="text" placeholder="Choisissez votre pseudo">
+                                </div>
+                                <div class="large-4 columns">
+                                    <label>Mot de passe</label>
+                                    <input type="password" placeholder="Entrez votre mot de passe">
+                                </div>
+                                <div class="large-4 columns">
+                                    <label>Confirmer mot de passe</label>
+                                    <input type="password" placeholder="Confirmez votre mot de passe">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <button class="expanded button" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -34,19 +99,20 @@
 
     <div class="tabs-content " data-tabs-content="tabs_example ">
         <div class="tabs-panel is-active " id="tab1 ">
+
             <table>
                 <tr>
                     <td>
                         <div class="media-object ">
                             <div class="media-object-section middle ">
                                 <div class="thumbnail ">
-                                    <img src="squeezie.jpg " style="height:125px;width:200px" alt="Media Object ">
+                                    <img src="squeezie.jpg " style="height:75px;width:125px;" alt="Media Object ">
                                 </div>
                             </div>
                             <div class="media-object-section " href=" ">
-                                <a>MON NOUVEAU METIER...</a><br>
+                                <font size="2" href="">MON NOUVEAU METIER...</font><br>
                                 <font size="2 ">Squeezie</font><br>
-                                <font size="1 ">625484 vues</font><br>
+                                <font size="1 ">1 234 992 vues -</font>
                                 <font size="1 ">le 29/10/16</font><br>
                             </div>
                         </div>
@@ -55,13 +121,13 @@
                         <div class="media-object ">
                             <div class="media-object-section middle ">
                                 <div class="thumbnail ">
-                                    <img style="height:125px;width:200px" src="wtc.jpg " alt="Media Object ">
+                                    <img style="height:75px;width:125px;" src="wtc.jpg " alt="Media Object ">
                                 </div>
                             </div>
                             <div class="media-object-section " href=" ">
                                 <a>MAKING OF - WHAT THE CUT #37</a><br>
                                 <font size="2 ">La Mezzanine</font><br>
-                                <font size="1 ">530 231 vues</font><br>
+                                <font size="1 ">530 231 vues -</font>
                                 <font size="1 ">le 09/10/16</font><br>
                             </div>
                         </div>
@@ -70,13 +136,13 @@
                         <div class="media-object ">
                             <div class="media-object-section middle ">
                                 <div class="thumbnail ">
-                                    <img style="height:125px;width:200px" src="atlas.jpg " alt="Media Object ">
+                                    <img style="height:75px;width:125px;" src="atlas.jpg " alt="Media Object ">
                                 </div>
                             </div>
                             <div class="media-object-section " href=" ">
                                 <a>Metallica: Atlas, Rise!</a><br>
                                 <font size="2 ">MetallicaTV</font><br>
-                                <font size="1 ">2 354 988 vues</font><br>
+                                <font size="1 ">2 354 988 vues -</font>
                                 <font size="1 ">le 11/11/16</font><br>
                             </div>
                         </div>
@@ -87,13 +153,13 @@
                         <div class="media-object ">
                             <div class="media-object-section middle ">
                                 <div class="thumbnail ">
-                                    <img style="height:125px;width:200px" src="squeezie.jpg " alt="Media Object ">
+                                    <img style="height:75px;width:125px;" src="squeezie.jpg " alt="Media Object ">
                                 </div>
                             </div>
                             <div class="media-object-section " href=" ">
                                 <a>MON NOUVEAU METIER...</a><br>
                                 <font size="2 ">Squeezie</font><br>
-                                <font size="1 ">625484 vues</font><br>
+                                <font size="1 ">1 234 992 vues - -</font>
                                 <font size="1 ">le 29/10/16</font><br>
                             </div>
                         </div>
@@ -102,13 +168,13 @@
                         <div class="media-object ">
                             <div class="media-object-section middle ">
                                 <div class="thumbnail ">
-                                    <img style="height:125px;width:200px" src="wtc.jpg " alt="Media Object ">
+                                    <img style="height:75px;width:125px;" src="wtc.jpg " alt="Media Object ">
                                 </div>
                             </div>
                             <div class="media-object-section " href=" ">
                                 <a>MAKING OF - WHAT THE CUT #37</a><br>
                                 <font size="2 ">La Mezzanine</font><br>
-                                <font size="1 ">6 vues</font><br>
+                                <font size="1 ">61 244 vues -</font>
                                 <font size="1 ">le 09/10/16</font><br>
                             </div>
                         </div>
@@ -117,13 +183,13 @@
                         <div class="media-object ">
                             <div class="media-object-section middle ">
                                 <div class="thumbnail ">
-                                    <img style="height:125px;width:200px" src="atlas.jpg " alt="Media Object ">
+                                    <img style="height:75px;width:125px;" src="atlas.jpg " alt="Media Object ">
                                 </div>
                             </div>
                             <div class="media-object-section " href=" ">
                                 <a>Metallica: Atlas, Rise!</a><br>
                                 <font size="2 ">MetallicaTV</font><br>
-                                <font size="1 ">2 354 988 vues</font><br>
+                                <font size="1 ">2 354 988 vues -</font>
                                 <font size="1 ">le 11/11/16</font><br>
                             </div>
                         </div>
@@ -134,13 +200,13 @@
                         <div class="media-object ">
                             <div class="media-object-section middle ">
                                 <div class="thumbnail ">
-                                    <img src="squeezie.jpg " style="height:125px;width:200px" alt="Media Object ">
+                                    <img src="squeezie.jpg " style="height:75px;width:125px;" alt="Media Object ">
                                 </div>
                             </div>
                             <div class="media-object-section " href=" ">
                                 <a>MON NOUVEAU METIER...</a><br>
                                 <font size="2 ">Squeezie</font><br>
-                                <font size="1 ">625484 vues</font><br>
+                                <font size="1 ">1 234 992 vues -</font>
                                 <font size="1 ">le 29/10/16</font><br>
                             </div>
                         </div>
@@ -149,13 +215,13 @@
                         <div class="media-object ">
                             <div class="media-object-section middle ">
                                 <div class="thumbnail ">
-                                    <img src="wtc.jpg " style="height:125px;width:200px" alt="Media Object ">
+                                    <img src="wtc.jpg " style="height:75px;width:125px;" alt="Media Object ">
                                 </div>
                             </div>
                             <div class="media-object-section " href=" ">
                                 <a>MAKING OF - WHAT THE CUT #37</a><br>
                                 <font size="2 ">La Mezzanine</font><br>
-                                <font size="1 ">6 vues</font><br>
+                                <font size="1 ">6 vues -</font>
                                 <font size="1 ">le 09/10/16</font><br>
                             </div>
                         </div>
@@ -164,13 +230,13 @@
                         <div class="media-object ">
                             <div class="media-object-section middle ">
                                 <div class="thumbnail ">
-                                    <img src="atlas.jpg " style="height:125px;width:200px" alt="Media Object ">
+                                    <img src="atlas.jpg " style="height:75px;width:125px;" alt="Media Object ">
                                 </div>
                             </div>
                             <div class="media-object-section " href=" ">
                                 <a>Metallica: Atlas, Rise!</a><br>
                                 <font size="2 ">MetallicaTV</font><br>
-                                <font size="1 ">2 354 988 vues</font><br>
+                                <font size="1 ">2 354 988 vues -</font>
                                 <font size="1 ">le 11/11/16</font><br>
                             </div>
                         </div>

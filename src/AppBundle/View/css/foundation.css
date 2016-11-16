@@ -106,6 +106,10 @@ a {
     background-color: transparent;
 }
 
+font.titres {
+    color:
+}
+
 
 /**
  * Improve readability of focused elements when they are also in an
@@ -3229,6 +3233,7 @@ screen and (min-width: 75em) {
 .media-object-section {
     display: table-cell;
     vertical-align: top;
+    margin-left: 15px;
 }
 
 .media-object-section:first-child {
@@ -3241,6 +3246,7 @@ screen and (min-width: 75em) {
 
 .media-object-section.middle {
     vertical-align: middle;
+    margin-left: 15px;
 }
 
 .media-object-section.bottom {

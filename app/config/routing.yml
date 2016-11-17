@@ -11,4 +11,7 @@ blog_show:
     defaults:  { _controller: AppBundle:Blog:show }
 login:
     path:      /login/
-    defaults:  { _controller: AppBundle:Security:login }    
+    defaults:  { _controller: AppBundle:Security:login }
+home:
+    path: /
+    defaults: { _controller: AppBundle:Home:index }

@@ -100,57 +100,20 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // app_channel_index
-        if (0 === strpos($pathinfo, '/feed/channel') && preg_match('#^/feed/channel(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'app_channel_index')), array (  'id' => 1,  '_controller' => 'AppBundle\\Controller\\ChannelController::indexAction',));
-        }
-
         // homepage
         if ($pathinfo === '/home') {
-            return array (  '_controller' => 'AppBundle\\Controller\\HomeController::indexAction',  '_route' => 'homepage',);
-        }
-
-        // welcome
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'welcome');
-            }
-
-            return array (  '_controller' => 'AppBundle\\Controller\\ListController::showAction',  '_route' => 'welcome',);
-        }
-
-        // app_lucky_number
-        if ($pathinfo === '/lucky/number') {
-            return array (  '_controller' => 'AppBundle\\Controller\\LuckyController::numberAction',  '_route' => 'app_lucky_number',);
-        }
-
-        // register
-        if ($pathinfo === '/register') {
-            return array (  '_controller' => 'AppBundle\\Controller\\RegistrationController::registerAction',  '_route' => 'register',);
-        }
-
-        if (0 === strpos($pathinfo, '/log')) {
-            // security_login_check
-            if ($pathinfo === '/login_check') {
-                return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::loginCheckAction',  '_route' => 'security_login_check',);
-            }
-
-            // logout
-            if ($pathinfo === '/logout') {
-                return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::logoutAction',  '_route' => 'logout',);
-            }
-
+            return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
         }
 
         if (0 === strpos($pathinfo, '/blog')) {
             // blog_list
             if (preg_match('#^/blog(?:/(?P<page>\\d+))?$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_list')), array (  '_controller' => 'AppBundle\\Controller\\BlogController::listAction',  'page' => 1,));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_list')), array (  '_controller' => 'AppBundle:Blog:list',  'page' => 1,));
             }
 
             // blog_show
             if (preg_match('#^/blog/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_show')), array (  '_controller' => 'AppBundle\\Controller\\BlogController::showAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_show')), array (  '_controller' => 'AppBundle:Blog:show',));
             }
 
         }
@@ -161,7 +124,16 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->redirect($pathinfo.'/', 'login');
             }
 
-            return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::loginAction',  '_route' => 'login',);
+            return array (  '_controller' => 'AppBundle:Security:login',  '_route' => 'login',);
+        }
+
+        // home
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'home');
+            }
+
+            return array (  '_controller' => 'AppBundle\\Controller\\HomeController::indexAction',  '_route' => 'home',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

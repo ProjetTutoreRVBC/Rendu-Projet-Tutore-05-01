@@ -34,14 +34,12 @@ class HomeController extends Controller
       $form->handleRequest($request);
       if($form->isSubmitted() && $form->isValid()){
           //$user = $form->getData();
-
-          var_dump($form->getData());die;
           /*4
           $encoder = $form->get('security.password_encoder');
           $password = $encoder->encodePassword($user, $user->getPlainPassword());
           $user->setPassword($password);
           */
-          return $this->redirectToRoute('home');
+          return $this->redirectToRoute('login');
       }
       
       return $this->render('home/homepage.html.php', array(

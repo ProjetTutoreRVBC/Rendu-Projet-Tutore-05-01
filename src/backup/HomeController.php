@@ -25,7 +25,6 @@ class HomeController extends Controller
               $encoder = $form->get('security.password_encoder');
               $password = $encoder->encodePassword($user, $user->getPlainPassword());
               $user->setPassword($password);
-
               // Set their role
               //$user->setRole('ROLE_USER');
 
@@ -33,7 +32,6 @@ class HomeController extends Controller
               //$em = $this->getDoctrine()->getManager();
               //$em->persist($user);
               //$em->flush();
-              echo "okokoko";
               return $this->redirectToRoute('login');
           }
         }

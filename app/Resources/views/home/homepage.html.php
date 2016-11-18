@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="<?php echo $view['assets']->getUrl('bundles/framework/css/foundation.css') ?>">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
-    <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/checkpass/passTest.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/validation/form.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/display/upload.js') ?>"></script>
 </head>
 
 <body>
@@ -57,7 +58,9 @@
                             <div class="row">
                                 <div class="large-4 columns">
                                     <label>Adresse mail</label>
-                                  <?php echo $view['form']->widget($form['email']); ?>
+                                    <input type="email" id="user_email" name="user[email]" onchange="checkEmail();" onkeyup="" required="required">
+                                    <i id="confirmMessageImg-email"></i>
+                                    <h2 id='result'></h2>
                                 </div>
                                 <div class="medium-4 columns">
                                     <label>Date de naissance</label>
@@ -66,13 +69,15 @@
                                 <div class="large-4 columns">
                                     <label>Avatar</label>
                                     <label for="exampleFileUpload" class="button">Upload File</label>
-                                    <input type="file" id="exampleFileUpload" class="show-for-sr">
+                                     <input type='file' id="exampleFileUpload" class="show-for-sr" onchange="readURL(this);" />
+                                     <span id="display-parent" ></span> 
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="large-4 columns">
                                     <label>Pseudo</label>
-                                  <?php echo $view['form']->widget($form['name']); ?>
+                                    <input type="text" id="user_name" name="user[name]" onkeyup="" onchange="checkName();" required="required">
+                                    <i id="confirmMessageImg-name"></i>
                                    </div>
                                 <div class="large-4 columns">
                                     <label>Mot de passe</label>
@@ -81,12 +86,12 @@
                                 <div class="large-4 columns">
                                     <label>Confirmez mot de passe</label>
                                     <input type="password" id="user_plainPassword_second" name="user[plainPassword][second]" onkeyup="checkPassImg(); return false;" required="required">
-                                    <i id="confirmMessageImg"></i>
+                                    <i id="confirmMessageImg-password"></i>
                                 </div>
                             </div>
                         </fieldset>
-                        <button class="expanded button" type="submit">Submit</button>
-                        <input type="hidden" id="user__token" name="user[_token]" value="XLYfo3jk_CjkGtG7V_I0NIXkbCmaEBqwAqKOeU8E0vU">
+                        <button id="submit-button" class="expanded button" type="submit">Submit</button>
+                        <?php echo $view['form']->row($form['_token']); ?>
                   </form>
               </div>
               <button class="close-button" data-close aria-label="Close modal" type="button">

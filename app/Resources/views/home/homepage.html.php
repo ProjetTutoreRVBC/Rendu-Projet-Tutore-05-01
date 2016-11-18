@@ -17,7 +17,7 @@
         <div class="top-bar-left">
             <ul class="menu">
                 <li><img src="logo.png " style="width:135px;height:75px; "></li>
-                <li><input type="search" placeholder="Search Here" style="margin-left:15px;width:250px;" ;></li>
+                <li><input type="search" placeholder="Search Here" style="margin-left:15px;width:450px;" ;></li>
                 <li><button type="button" class="button">Search</button></li>
             </ul>
         </div>

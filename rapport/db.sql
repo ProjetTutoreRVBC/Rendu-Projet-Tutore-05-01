@@ -1,20 +1,20 @@
-create table User (
-    mailUser varchar(40) not null,
-    pseudoUser varchar(30) primary key,
-    passUser varchar(40)not null);
+create table Nostreamer (
+    mailNostreamer varchar(40) not null,
+    pseudoNostreamer varchar(30) primary key,
+    passNostreamer varchar(40)not null);
 
 create table Page(
     idPage int primary key auto_increment,
-    pseudoUser varchar(30) not null,
+    pseudoNostreamer varchar(30) not null,
     descriptionPage text,
-    foreign key(pseudoUser) references User(pseudoUser));
+    foreign key(pseudoNostreamer) references Nostreamer(pseudoNostreamer));
 
 create table Channel(
     nameChannel varchar(50) primary key,
-    pseudoUser varchar(30) not null,
+    pseudoNostreamer varchar(30) not null,
     subscribersChannel int default 0,
     descriptionChannel text,
-    creationDateChannel date default NOW(),
+    creationDateChannel ,
     viewsChannel int default 0);
 
 create table Post(
@@ -43,18 +43,25 @@ create table Comment(
     messageComment text not null,
     nbRateComment int default 0,
     rateComment float,
-    pseudoUser varchar(30) not null,
+    pseudoNostreamer varchar(30) not null,
     idPost int,
     nameChannel varchar(50),
     idVideo int,
-    foreign key(pseudoUser) references User(pseudoUser),
+    foreign key(pseudoNostreamer) references Nostreamer(pseudoNostreamer),
     foreign key(idPost) references Post(idPost),
     foreign key(nameChannel) references Channel(nameChannel),
     foreign key(idVideo) references Video(idVideo));
 
 create table SubscribedChannel(
-    idUser int,
+    idNostreamer int,
     idChannel int,
-    primary key(idUser,idChannel),
+    primary key(idNostreamer,idChannel),
     foreign key(idChannel) references Channel(idChannel),
-    foreign key(idUser) references User(idUser));
+    foreign key(idNostreamer) references Nostreamer(idNostreamer));
+    
+create table SubscribedPage(
+    idNostreamer int,
+    idPage int,
+    primary key(idNostreamer,idPage),
+    foreign key(idPage) references Page(idPage),
+    foreign key(idNostreamer) references Nostreamer(idNostreamer));

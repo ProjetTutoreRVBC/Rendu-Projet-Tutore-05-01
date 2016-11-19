@@ -6145,7 +6145,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "User",
+					"name": "Nostreamer",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -6434,11 +6434,10 @@
 							"_parent": {
 								"$ref": "AAAAAAFX1KSnXsxCMs8="
 							},
-							"name": "idUser int",
+							"name": "idNostreamer int",
 							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,
-							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -6452,11 +6451,10 @@
 							"_parent": {
 								"$ref": "AAAAAAFX1KSnXsxCMs8="
 							},
-							"name": "mailUser varchar",
+							"name": "mailNostreamer varchar",
 							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,
-							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -6470,11 +6468,10 @@
 							"_parent": {
 								"$ref": "AAAAAAFX1KSnXsxCMs8="
 							},
-							"name": "pseudoUser varchar",
+							"name": "pseudoNostreamer varchar",
 							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,
-							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -6488,11 +6485,10 @@
 							"_parent": {
 								"$ref": "AAAAAAFX1KSnXsxCMs8="
 							},
-							"name": "passUser varchar",
+							"name": "passNostreamer varchar",
 							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,
-							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -6506,11 +6502,10 @@
 							"_parent": {
 								"$ref": "AAAAAAFX1KSnXsxCMs8="
 							},
-							"name": "avatarUser blob",
+							"name": "avatarNostreamer blob",
 							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,
-							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -6968,11 +6963,10 @@
 							"_parent": {
 								"$ref": "AAAAAAFX1K3VMM1Kn48="
 							},
-							"name": "idUser int",
+							"name": "idNostreamer int",
 							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,
-							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -7299,11 +7293,10 @@
 							"_parent": {
 								"$ref": "AAAAAAFX1MCqj9DdG3I="
 							},
-							"name": "idUser int",
+							"name": "idNostreamer int",
 							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,
-							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -7572,11 +7565,10 @@
 							"_parent": {
 								"$ref": "AAAAAAFX1NPCBgaqHVQ="
 							},
-							"name": "idUser int",
+							"name": "idNostreamer int",
 							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,
-							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -7930,7 +7922,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "User",
+											"text": "Nostreamer",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -8045,7 +8037,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-idUser int",
+											"text": "-idNostreamer int",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -8073,7 +8065,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-mailUser varchar",
+											"text": "-mailNostreamer varchar",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -8101,7 +8093,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-pseudoUser varchar",
+											"text": "-pseudoNostreamer varchar",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -8129,7 +8121,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-passUser varchar",
+											"text": "-passNostreamer varchar",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -8157,7 +8149,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-avatarUser blob",
+											"text": "-avatarNostreamer blob",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -8527,7 +8519,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-idUser int",
+											"text": "-idNostreamer int",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -9491,7 +9483,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-idUser int",
+											"text": "-idNostreamer int",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -11682,7 +11674,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-idUser int",
+											"text": "-idNostreamer int",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -14163,7 +14155,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-idUser int",
+											"text": "-idNostreamer int",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -15747,7 +15739,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "-idUser int",
+											"text": "-idNostreamer int",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										},
@@ -16754,11 +16746,10 @@
 							"_parent": {
 								"$ref": "AAAAAAFYJDaNLg5nCCQ="
 							},
-							"name": "idUser int",
+							"name": "idNostreamer int",
 							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,
-							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -16805,11 +16796,10 @@
 							"_parent": {
 								"$ref": "AAAAAAFYbQuIchBazVs="
 							},
-							"name": "idUser int",
+							"name": "idNostreamer int",
 							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,
-							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,

@@ -101,13 +101,17 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 
-video-principale {}
+div.video-principale {
+    position: absolute;
+    top: 140px;
+}
 
 div.video-titre {
     position: absolute;
     margin-left: auto !important;
     margin-right: auto !important;
     text-align: center !important;
+    top: 90px;
     height: 5%;
     width: 100%;
 }

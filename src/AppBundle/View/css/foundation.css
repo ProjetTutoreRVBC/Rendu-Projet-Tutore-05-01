@@ -101,6 +101,22 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 
+video-container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+}
+
+video-info-channel {
+    width: 25%;
+    height: 75%;
+}
+
+video-info-video {
+    width: 25%;
+    height: 75%;
+}
+
 a {
     background-color: transparent;
 }

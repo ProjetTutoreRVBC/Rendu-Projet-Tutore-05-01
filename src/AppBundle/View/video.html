@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>nostream</title>
     <link rel="stylesheet" href="css/foundation.css">
-    <link href="http://vjs.zencdn.net/5.8.8/video-js.css" rel="stylesheet">
+    <link href="css/video-js/video-js.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
 </head>
@@ -90,9 +90,10 @@
         </div>
     </div>
     <!-------------------------------------------------------TOP BAR------------------------------------------------------>
-    <div class="video-container" style="margin-left:auto;margin-right:auto;">
-        <h3 style="margin-left:20px;">Metallica - Atlas, Rise! Teaser</h3>
-        <video id="my-video" class="video-js " controls preload="auto " style="margin-left:25px; " width="1000 " height="600 " poster="atlas.jpg " data-setup="{} ">
+    <div class="video-principale">
+        <div class="video-container" style="margin-left:auto!important;margin-right:auto!important;text-align:center!important;">
+            <h3 style="margin-left:20px;">Metallica - Atlas, Rise! Teaser</h3>
+            <video id="my-video" class="video-js " controls preload="auto " style="margin-left:auto;margin-right:auto; position:relative !important;" width="1000 " height="600 " poster="atlas.jpg " data-setup="{} ">
             <source src="atlas.mp4 " type='video/mp4'>
             <source src="MY_VIDEO.webm " type='video/webm'>
             <p class="vjs-no-js ">
@@ -100,7 +101,22 @@
             <a href="http://videojs.com/html5-video-support/ " target="_blank ">supports HTML5 video</a>
             </p>
         </video>
+        </div>
+
+        <div class="video-info-channel">
+
+        </div>
+
+        <div class="video-info-video">
+
+        </div>
+
+        <div class="video-recommandations">
+
+        </div>
+
     </div>
+
 
     <script src="http://vjs.zencdn.net/5.8.8/video.js "></script>
 </body>

@@ -57,6 +57,7 @@ function validateName(name) {
   return false;
 }
 
+
 function checkName() {
   var name = $("#user_name").val();
   var obj = document.getElementById('user_name');
@@ -79,6 +80,7 @@ function checkEmail() {
   }
   return false;
 }
+
 
 
   

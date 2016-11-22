@@ -34,18 +34,35 @@ class HomeController extends Controller
       $form->handleRequest($request);
       if($form->isSubmitted() && $form->isValid()){
           //$user = $form->getData();
-          /*4
-          $encoder = $form->get('security.password_encoder');
+          
+          $encoder = $this->get('security.password_encoder');
           $password = $encoder->encodePassword($user, $user->getPlainPassword());
           $user->setPassword($password);
-          */
-          return $this->redirectToRoute('login');
+          
+          var_dump($form->getData());die;
+          //return $this->redirectToRoute('login');
       }
       
       return $this->render('home/homepage.html.php', array(
         'form' => $form->createView(),
       ));
     }
-    
+
+
+    /**
+     * @Route("/login_check", name="security_login_check")
+     */
+    public function loginCheckAction()
+    {
+      
+    }
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logoutAction()
+    {
+      $session = $request->getSession()->clear();
+    }
      
 }

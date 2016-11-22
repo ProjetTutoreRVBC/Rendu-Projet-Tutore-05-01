@@ -2,9 +2,11 @@
 namespace AppBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 
-class User
+
+class User implements UserInterface
 {
     protected $id;
     protected $email;

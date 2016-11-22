@@ -27,13 +27,13 @@
             <div class="large reveal" id="exampleModal1" data-reveal aria-hidden="true" role="dialog">
                 <div style="float: right;">
                     <h2>Connexion</h2>
-                    <form>
+                    <form class="form-horizontal" role="form" method="POST" action="login_check">
                         <div class="row">
                             <div class="small-8 columns">
                                 <div class="row">
                                     <div class="small-3 columns">
                                         <label>Pseudo</label>
-                                        <input type="text" id="right-label" placeholder="pseudo">
+                                        <input name="_email" type="text" id="right-label" placeholder="pseudo" required="required">
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                 <div class="row">
                                     <div class="small-3 columns">
                                         <label>Pass</label>
-                                        <input type="text" id="right-label" placeholder="mot de passe">
+                                        <input name="_password" type="text" id="right-label" placeholder="mot de passe" required="required">
                                     </div>
                                 </div>
                             </div>
@@ -58,13 +58,13 @@
                             <div class="row">
                                 <div class="large-4 columns">
                                     <label>Adresse mail</label>
-                                    <input type="email" id="user_email" name="user[email]" onchange="checkEmail();" onkeyup="" required="required">
+                                    <input type="email" id="user_email" name="user[email]" onchange="checkEmail();" required="required">
                                     <i id="confirmMessageImg-email"></i>
                                     <h2 id='result'></h2>
                                 </div>
                                 <div class="medium-4 columns">
                                     <label>Date de naissance</label>
-                                    <?php echo $view['form']->widget($form['birth']); ?>
+                                    <input id="user_birth" name="user[birth]" required="required" type="date">
                                 </div>
                                 <div class="large-4 columns">
                                     <label>Avatar</label>
@@ -76,7 +76,7 @@
                             <div class="row">
                                 <div class="large-4 columns">
                                     <label>Pseudo</label>
-                                    <input type="text" id="user_name" name="user[name]" onkeyup="" onchange="checkName();" required="required">
+                                    <input type="text" id="user_name" name="user[name]"  onchange="checkName();" required="required">
                                     <i id="confirmMessageImg-name"></i>
                                    </div>
                                 <div class="large-4 columns">

@@ -63,8 +63,7 @@ summary {
 
 audio,
 canvas,
-progress,
-video {
+progress {
     display: inline-block;
     /* 1 */
     vertical-align: baseline;
@@ -101,6 +100,46 @@ template {
 /**
  * Remove the gray background color from active links in IE 10.
  */
+
+div.video-principale {
+    position: absolute;
+    top: 140px;
+}
+
+div.video-titre {
+    position: absolute;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    top: 90px;
+    height: 5%;
+    width: 100%;
+}
+
+div.video-info-channel {
+    float: left;
+    display: table;
+    display: inline-block;
+    left: 0%;
+    top: 5%;
+    width: 25%;
+    height: 75%;
+    align-content: left;
+}
+
+div.video-container {
+    float: left;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+div.video-info-video {
+    float: left;
+    right: 0%;
+    width: 25%;
+    height: 75%;
+    align-content: right;
+}
 
 a {
     background-color: transparent;

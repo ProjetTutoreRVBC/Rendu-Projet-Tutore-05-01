@@ -101,6 +101,19 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 
+td.element {
+    width: 25%;
+    height: 10%;
+}
+
+td.videaste-video {
+    width: 24%
+}
+
+td.videaste-chaine {
+    width: 10%;
+}
+
 div.video-principale {
     position: absolute;
     top: 140px;
@@ -122,7 +135,7 @@ div.video-info-channel {
     display: inline-block;
     left: 0%;
     top: 5%;
-    width: 25%;
+    width: 20%;
     height: 75%;
     align-content: left;
 }
@@ -136,7 +149,7 @@ div.video-container {
 div.video-info-video {
     float: left;
     right: 0%;
-    width: 25%;
+    width: 19%;
     height: 75%;
     align-content: right;
 }

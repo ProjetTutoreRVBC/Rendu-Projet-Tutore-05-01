@@ -17,7 +17,7 @@ class SecurityController extends Controller
        $helper = $this->get('security.authentication_utils');
         
         return $this->render(
-           'auth/login.html.twig',
+           'home/homepage.html.php',
            array(
                'last_username' => $helper->getLastUsername(),
                'error'         => $helper->getLastAuthenticationError(),
@@ -25,7 +25,7 @@ class SecurityController extends Controller
        );   
       
     }
-
+  
     /**
      * @Route("/login_check", name="security_login_check")
      */

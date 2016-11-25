@@ -1,19 +1,48 @@
 <?php
 namespace AppBundle\Entity;
-
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\ORM\Mapping as ORM;
 
-
-
+/**
+* @ORM\Entity
+*
+**/
 class User implements UserInterface
-{
+{   
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
     protected $id;
+    /**
+     * @ORM\Column(type="string", length=60, unique=true)
+     */
     protected $email;
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
     protected $name;
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
     protected $role;
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
+     */
     protected $plainPassword;
+    /**
+     * The below length depends on the "algorithm" you use for encoding
+     * the password, but this works well with bcrypt.
+     *
+     * @ORM\Column(type="string", length=64)
+     */
     protected $password;
+    /**
+     * @ORM\Column(type="datetime")
+     */
     protected $birth;
   
     public function eraseCredentials()

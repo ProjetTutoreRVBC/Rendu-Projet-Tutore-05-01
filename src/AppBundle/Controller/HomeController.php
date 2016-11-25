@@ -39,7 +39,7 @@ class HomeController extends Controller
           $password = $encoder->encodePassword($user, $user->getPlainPassword());
           $user->setPassword($password);
           
-          var_dump($form->getData());die;
+          //var_dump($form->getData());die;
           //return $this->redirectToRoute('login');
       }
       
@@ -47,13 +47,29 @@ class HomeController extends Controller
         'form' => $form->createView(),
       ));
     }
-
-
+    
+        /**
+     * @Route("/login", name="login")
+     */
+    public function loginAction(Request $request)
+    { 
+       $helper = $this->get('security.authentication_utils');
+        if($helper->getLastAuthenticationError()) {
+        return $this->render(
+           'home/homepage.html.php',
+           array(
+               'last_username' => $helper->getLastUsername(),
+               'error'         => $helper->getLastAuthenticationError(),
+           )
+       );   
+        }
+    }
+    
     /**
      * @Route("/login_check", name="security_login_check")
      */
-    public function loginCheckAction()
-    {
+    public function loginCheckAction(Request $request)
+    {    
       
     }
 
@@ -64,5 +80,4 @@ class HomeController extends Controller
     {
       $session = $request->getSession()->clear();
     }
-     
 }

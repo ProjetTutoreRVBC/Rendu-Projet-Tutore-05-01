@@ -55,10 +55,10 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
 
         throw new BadCredentialsException();
     }
-
+  
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
-        $url = $this->router->generate('welcome');
+        $url = $this->router->generate('home');
 
         return new RedirectResponse($url);
     }
@@ -67,14 +67,14 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
     {
        $request->getSession()->set(Security::AUTHENTICATION_ERROR, $exception);
 
-       $url = $this->router->generate('login');
+       $url = $this->router->generate('home');
 
        return new RedirectResponse($url);
     }
 
     protected function getLoginUrl()
     {
-        return $this->router->generate('login');
+        return $this->router->generate('home');
     }
 
     protected function getDefaultSuccessRedirectUrl()

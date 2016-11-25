@@ -17,23 +17,23 @@
     <div class="top-bar">
         <div class="top-bar-left">
             <ul class="menu">
-                <li><img src="logo.png " style="width:135px;height:75px; "></li>
+                <li><a href="/web/app_dev.php/" ><img src="/web/bundles/framework/images/logo.png " style="width:135px;height:75px; "></a></li>
                 <li><input type="search" placeholder="Search Here" style="margin-left:15px;width:450px;" ;></li>
                 <li><button type="button" class="button">Search</button></li>
             </ul>
         </div>
         <div class="top-bar-right">
-            <img class="thumbnail " data-open="exampleModal1" src="profile.jpg ">
-            <div class="large reveal" id="exampleModal1" data-reveal aria-hidden="true" role="dialog">
-                <div style="float: right;">
+            <img class="thumbnail " data-open="toggle" src="profile.jpg ">
+            <div class="large reveal" id="toggle" data-reveal aria-hidden="true" role="dialog">
+                <div style="float: right;" id="modal-form-login">
                     <h2>Connexion</h2>
-                    <form class="form-horizontal" role="form" method="POST" action="login_check">
+                    <form class="form-horizontal" method="POST" action="login_check" id="contact_form">
                         <div class="row">
                             <div class="small-8 columns">
                                 <div class="row">
                                     <div class="small-3 columns">
                                         <label>Pseudo</label>
-                                        <input name="_email" type="text" id="right-label" placeholder="pseudo" required="required">
+                                        <input name="_email" type="text" id="right-label" placeholder="pseudo">
                                     </div>
                                 </div>
                             </div>
@@ -43,12 +43,12 @@
                                 <div class="row">
                                     <div class="small-3 columns">
                                         <label>Pass</label>
-                                        <input name="_password" type="text" id="right-label" placeholder="mot de passe" required="required">
+                                        <input name="_password" type="password" id="right-label" placeholder="mot de passe">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button class="expanded button" type="submit">Submit</button>
+                        <button id="submitForm" class="expanded button" type="submit">Submit</button>
                     </form>
                 </div>
                 <div style="float: left;">
@@ -110,8 +110,6 @@
     </ul>
 
     <div class="tabs-content " data-tabs-content="tabs_example ">
-
-        <!------------------------------------------------------------Section Tendances---------------------------->
         <div class="tabs-panel is-active " id="tab1">
             <table>
                 <tr>
@@ -257,8 +255,6 @@
                 </tr>
             </table>
         </div>
-
-        <!------------------------------------------------------------Section Vidéastes---------------------------->
 
         <div class="tabs-panel " id="tab2">
             <table>

@@ -137,7 +137,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->redirect($pathinfo.'/', 'login');
             }
 
-            return array (  '_controller' => 'AppBundle:Security:login',  '_route' => 'login',);
+            return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::loginAction',  '_route' => 'login',);
         }
 
         // home

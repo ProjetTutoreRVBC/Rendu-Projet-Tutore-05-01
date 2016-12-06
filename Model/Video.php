@@ -7,7 +7,9 @@ class Video
     private $dateVideo;
     private $viewsVideo;
     private $descriptionVideo;
-    private $rateVideo;
+    private $positiveVote;
+		private $negativeVote;
+	
     public function __construct($nameVideo, $channel, $descriptionVideo)
     {
       $this->nameVideo = $nameVideo;
@@ -39,10 +41,15 @@ class Video
       return $this->descriptionVideo;
     }
   
-    public function getRate()
+    public function getPositiveVote()
     {
-      return $this->rateVideo;
+      return $this->positiveVote;
     }
+	
+		public function getNegativeVote()
+		{
+			return $this->negativeVote;
+		}
   
     public function setName($name)
     {
@@ -58,12 +65,52 @@ class Video
   
     public function addView()
     {
-      
+			$viewsVideo++;
+			$db = Database::getInstance();
+			$sql = "UPDATE Video SET viewsVideo = :viewsVideo WHERE idVideo = :id";
+			$stmt = $db->prepare($sql);
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			$stmt->bindParam(':viewsVideo',$viewsVideo);
+			$stmt->bindParam(':id',$idVideo);
+			$stmt->execute();
+			$this->nameVideo = $viewsVideo; 
     }
   
-    public function addRate()
+		public function addPositive()
+		{
+			$positiveVote++;
+			$db = Database::getInstance();
+			$sql = "UPDATE Video SET positiveVote = :positiveVote WHERE idVideo = :id";
+			$stmt = $db->prepare($sql);
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			$stmt->bindParam(':positiveVote',$positiveVote);
+			$stmt->bindParam(':id',$idVideo);
+			$stmt->execute();
+			$this->nameVideo = $positiveVote; 
+    }
+	
+		public function addNegative()
+		{
+			$negativeVote++;
+			$db = Database::getInstance();
+			$sql = "UPDATE Video SET negativeVote = :negativeVote WHERE idVideo = :id";
+			$stmt = $db->prepare($sql);
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			$stmt->bindParam(':negativeVote',$negativeVote);
+			$stmt->bindParam(':id',$idVideo);
+			$stmt->execute();
+			$this->nameVideo = $negativeVote; 
+    }
+	
+    public function rating($positiveVote,$negativeVote)
     {
-      
+			if((positiveVote == 0) &&(negativeVote == 0)){
+				return 0;
+			}
+			else{
+				$rate= $positiveVote/($positiveVote+$negativeVote)*100;
+				return $rate;
+			}
     }
   
     public function setDescription($description)

@@ -18,8 +18,15 @@ class Page
   
     public function getFromId($idNostreamer)
     {
-      
+			$db = Database::getInstance();
+			$sql = "SELECT idPage FROM Page WHERE idNostreamer =:idNostreamer";
+		  $stmt = $db->prepare($sql);
+		  $stmt->setFetchMode(PDO::FETCH_CLASS, "Page");
+		  $stmt->bindParam(':idNostreamer',$idNostreamer);
+			$stmt->execute();
+			return $stmt->fetch();
     }
+	
     public function getOwnerName()
     {
       return $this->nostreamer;

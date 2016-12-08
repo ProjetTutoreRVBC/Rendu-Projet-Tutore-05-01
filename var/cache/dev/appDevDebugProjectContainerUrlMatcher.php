@@ -105,19 +105,6 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
         }
 
-        if (0 === strpos($pathinfo, '/log')) {
-            // security_login_check
-            if ($pathinfo === '/login_check') {
-                return array (  '_controller' => 'AppBundle\\Controller\\HomeController::loginCheckAction',  '_route' => 'security_login_check',);
-            }
-
-            // logout
-            if ($pathinfo === '/logout') {
-                return array (  '_controller' => 'AppBundle\\Controller\\HomeController::logoutAction',  '_route' => 'logout',);
-            }
-
-        }
-
         if (0 === strpos($pathinfo, '/blog')) {
             // blog_list
             if (preg_match('#^/blog(?:/(?P<page>\\d+))?$#s', $pathinfo, $matches)) {

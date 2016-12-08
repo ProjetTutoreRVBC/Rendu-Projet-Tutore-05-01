@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 //...
+use AppBundle\Model\Nostreamer;
 use AppBundle\Entity\User;
 
 //Others
@@ -28,56 +29,24 @@ class HomeController extends Controller
      * @Route("/",name="home")
      */
     public function indexAction(Request $request)
-    {
-      $user = new User();
-      $form = $this->createForm(UserType::class,$user);
-      $form->handleRequest($request);
-      if($form->isSubmitted() && $form->isValid()){
-          //$user = $form->getData();
-          
-          $encoder = $this->get('security.password_encoder');
-          $password = $encoder->encodePassword($user, $user->getPlainPassword());
-          $user->setPassword($password);
-          
-          //var_dump($form->getData());die;
-          //return $this->redirectToRoute('login');
-      }
-      
-      return $this->render('home/homepage.html.php', array(
-        'form' => $form->createView(),
-      ));
-    }
-    
-        /**
-     * @Route("/login", name="login")
-     */
-    public function loginAction(Request $request)
     { 
-       $helper = $this->get('security.authentication_utils');
-        if($helper->getLastAuthenticationError()) {
-        return $this->render(
-           'home/homepage.html.php',
-           array(
-               'last_username' => $helper->getLastUsername(),
-               'error'         => $helper->getLastAuthenticationError(),
-           )
-       );   
+      if(isset($_POST) && $_POST != null){
+        if(isset($_POST['register'])){
+          $user = new Nostreamer();
+          $pseudo = $_POST['name'];
+          $password = $_POST['passwd'];
+          $email = $_POST['email'];
+          $avatar = $_POST['avatar'];
+          $user->register($email,$pseudo,$password,$avatar);
         }
-    }
-    
-    /**
-     * @Route("/login_check", name="security_login_check")
-     */
-    public function loginCheckAction(Request $request)
-    {    
-      
-    }
-
-    /**
-     * @Route("/logout", name="logout")
-     */
-    public function logoutAction()
-    {
-      $session = $request->getSession()->clear();
+        if(isset($_POST['login'])){
+          $_SESSION['pseudoNostreamer'] = null;
+          $user = new Nostreamer();
+          $email = $_POST['_email'];
+          $password = $_POST['_password'];
+        }
+        
+      }       
+      return $this->render('home/homepage.html.php');
     }
 }

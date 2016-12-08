@@ -27,7 +27,7 @@
             <div class="large reveal" id="toggle" data-reveal aria-hidden="true" role="dialog">
                 <div style="float: right;" id="modal-form-login">
                     <h2>Connexion</h2>
-                    <form class="form-horizontal" method="POST" action="login_check" id="contact_form">
+                    <form class="form-horizontal" method="POST" action="" id="contact_form">
                         <div class="row">
                             <div class="small-8 columns">
                                 <div class="row">
@@ -48,17 +48,17 @@
                                 </div>
                             </div>
                         </div>
-                        <button id="submitForm" class="expanded button" type="submit">Submit</button>
+                        <button name="login" id="submitForm" class="expanded button" type="submit">Submit</button>
                     </form>
                 </div>
                 <div style="float: left;">
                     <h2>Inscription</h2>
-                    <?php echo $view['form']->start($form) ?>
+                    <form action="" method="POST">
                     <fieldset>
                             <div class="row">
                                 <div class="large-4 columns">
                                     <label>Adresse mail</label>
-                                    <input type="email" id="user_email" name="user[email]" onchange="checkEmail();" required="required">
+                                    <input type="email" id="user_email" name="email" onchange="checkEmail();" required="required">
                                     <i id="confirmMessageImg-email"></i>
                                     <h2 id='result'></h2>
                                 </div>
@@ -69,19 +69,19 @@
                                 <div class="large-4 columns">
                                     <label>Avatar</label>
                                     <label for="exampleFileUpload" class="button">Upload File</label>
-                                     <input type='file' id="exampleFileUpload" class="show-for-sr" onchange="readURL(this);" />
+                                     <input type='file' name="avatar" id="exampleFileUpload" class="show-for-sr" onchange="readURL(this);" />
                                      <span id="display-parent" ></span> 
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="large-4 columns">
                                     <label>Pseudo</label>
-                                    <input type="text" id="user_name" name="user[name]"  onchange="checkName();" required="required">
+                                    <input type="text" id="user_name" name="name"  onchange="checkName();" required="required">
                                     <i id="confirmMessageImg-name"></i>
                                    </div>
                                 <div class="large-4 columns">
                                     <label>Mot de passe</label>
-                                    <input type="password" id="user_plainPassword_first" name="user[plainPassword][first]" onkeyup="checkPassImg(); return false;" required="required">
+                                    <input type="password" id="user_plainPassword_first" name="passwd" onkeyup="checkPassImg(); return false;" required="required">
                                 </div>
                                 <div class="large-4 columns">
                                     <label>Confirmez mot de passe</label>
@@ -90,9 +90,7 @@
                                 </div>
                             </div>
                         </fieldset>
-                        <button id="submit-button" class="expanded button" type="submit">Submit</button>
-                        <?php echo $view['form']->row($form['_token']); ?>
-                  </form>
+                        <button name="register" id="submit-button" class="expanded button" type="submit">Submit</button>
               </div>
               <button class="close-button" data-close aria-label="Close modal" type="button">
                 <span aria-hidden="true">&times;</span>
@@ -112,7 +110,7 @@
     <div class="tabs-content " data-tabs-content="tabs_example ">
         <div class="tabs-panel is-active " id="tab1">
             <table>
-                <tr>
+                <!--<tr>
                     <td>
                         <div class="media-object ">
                             <div class="media-object-section middle ">
@@ -252,10 +250,33 @@
                             </div>
                         </div>
                     </td>
-                </tr>
+                </tr>-->
+              
+                <?php
+                  for($i = 0; $i < 5; $i++)
+                  {
+                    echo "<tr>";
+                    for($j = 0; $j < 5; $j++)
+                    {
+                      echo "<td>";
+                      echo "<div class='media-object'>";
+                      echo "<div class='media-object-section middle'>";
+                      echo "<img src='wtc.jpg' style='height:75px;width:125px;' alt='Media Object'>";
+                      echo "</div>"; 
+                      echo "<div class='media-object-section '>";
+                      echo "<a>MAKING OF - WHAT THE CUT #37</a><br>";
+                      echo "<font size='2'>La Mezzanine</font><br>";
+                      echo "</div>";
+                      echo "</div>"; 
+                      echo "</td>";
+                    }
+                    echo "</tr>";
+                  }
+              
+                ?>
             </table>
         </div>
-
+        
         <div class="tabs-panel " id="tab2">
             <table>
                 <th>

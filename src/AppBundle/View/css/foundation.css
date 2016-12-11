@@ -4400,6 +4400,7 @@ ul.tabs li {
 
 .tabs-panel {
     display: none;
+    height: 80%;
     padding: 1rem;
 }
 

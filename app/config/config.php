@@ -1,6 +1,7 @@
 $container->loadFromExtension('framework', array(
-    // ...
-    'templating' => array(
-        'engines' => array('twig', 'php'),
+    'db' => array(
+        'driver' => 'pdo_mysql',
+        'host' => 'dwarves.iut-fbleau.fr/phpmyadmin',
+        'dbname' => 'brassele',
     ),
 ));

@@ -1,49 +1,42 @@
 <?php
-namespace AppBundle\Model;
-use AppBundle\Model\Database;
-
 class Nostreamer
 {
     private $idNostreamer;
     private $mailNostreamer;
     private $pseudoNostreamer;
     private $passNostreamer;
-    private $avatarNostreamer;
+    private $avatarNoStreamer;
     private $page;
-		
-    public function __construct()
+    public function __construct($mailNostreamer, $pseudoNostreamer, $passNostreamer, $avatarNostreamer)
     {
-			/*
-      $this->mailNostreamer = null;
-		  $this->pseudoNostreamer = null;
-		  $this->passNostreamer = null;
-		  $this->avatarNostreamer = null;
-    	*/
-		}
-	/*
+      $this->mailNostreamer = $mailNostreamer;
+		  $this->pseudoNostreamer = $pseudoNostreamer;
+		  $this->passNostreamer = $passNostreamer;
+		  $this->avatarNostreamer = $avatarNostreamer;
+    }
+  
     public function getFromPseudo($pseudo)
     {
       $db = Database::getInstance();
-		  $sql = "SELECT * FROM nostreamer WHERE pseudoNostreamer =:pseudo";
+		  $sql = "SELECT * FROM Nostreamer WHERE pseudoNostreamer =:pseudo";
 		  $stmt = $db->prepare($sql);
 		  $stmt->setFetchMode(PDO::FETCH_CLASS, "Nostreamer");
 		  $stmt->bindParam(':pseudo',$pseudo)
 		  $stmt->execute();
 		  return $stmt->fetch();
     }
-	*/
+  
     public function register($mailNostreamer, $pseudoNostreamer, $passNostreamer, $avatarNostreamer)
     {
       $db = Database::getInstance();
-		  $sql = "INSERT INTO Nostreamer(mailNostreamer,pseudoNostreamer,passNostreamer) VALUES (:mail, :pseudo, :pass)";
+		  $sql = "INSERT INTO Nostreamer VALUES (:mail, :pseudo, :pass)";
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':mail', $mailNostreamer);
 		  $stmt->bindParam(':pseudo', $pseudoNostreamer);
 		  $stmt->bindParam(':pass', $passNostreamer);
 		  $stmt->execute();
     }
-		
-		
+  
     public function signIn($mailNostreamer, $passNostreamer)
     {
       $db = Database::getInstance();
@@ -53,23 +46,15 @@ class Nostreamer
 	  	$stmt->execute();
 	  	$res = $stmt->fetch();
 	  	if ($res['passNostreamer'] == $passNostreamer ) {
-				return true;
-				/*
-	  			session_start();
-	  	  $_SESSION['pseudoNostreamer'] = $res['pseudoNostreamer'];
-	  		*/
+	  		return true;
 			}
 	  	if ($res['passNostreamer'] != $passNostreamer ) {
-				return false;
-				/*
-	  	  echo "<h2>Votre mot de passe est incorrecte veuillez réessayer</h2>";
-	  		*/
-			}
+	  	  return false;
+	  	}
     }
-	/*
     public function getMail()
     {
-      return $this->mailNostreamer
+      return $this->mailNostreamer;
     }
   
     public function getPseudo()
@@ -167,5 +152,4 @@ class Nostreamer
 		  $stmt->execute();
 		  $this->avatarNostreamer = $avatar;
     }
-		*/
 }

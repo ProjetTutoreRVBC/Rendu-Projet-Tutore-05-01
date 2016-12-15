@@ -100,9 +100,19 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // app_channel_index
+        if ($pathinfo === '/channel') {
+            return array (  '_controller' => 'AppBundle\\Controller\\ChannelController::indexAction',  '_route' => 'app_channel_index',);
+        }
+
         // homepage
         if ($pathinfo === '/home') {
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
+        }
+
+        // app_video_index
+        if ($pathinfo === '/video') {
+            return array (  '_controller' => 'AppBundle\\Controller\\VideoController::indexAction',  '_route' => 'app_video_index',);
         }
 
         if (0 === strpos($pathinfo, '/blog')) {

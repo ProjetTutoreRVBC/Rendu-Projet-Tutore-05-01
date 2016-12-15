@@ -1,4 +1,6 @@
 <?php
+namespace AppBundle\Model;
+
 class Nostreamer
 {
     private $idNostreamer;
@@ -7,6 +9,7 @@ class Nostreamer
     private $passNostreamer;
     private $avatarNoStreamer;
     private $page;
+	/*
     public function __construct($mailNostreamer, $pseudoNostreamer, $passNostreamer, $avatarNostreamer)
     {
       $this->mailNostreamer = $mailNostreamer;
@@ -25,7 +28,7 @@ class Nostreamer
 		  $stmt->execute();
 		  return $stmt->fetch();
     }
-  
+  */
     public function register($mailNostreamer, $pseudoNostreamer, $passNostreamer, $avatarNostreamer)
     {
       $db = Database::getInstance();
@@ -52,6 +55,7 @@ class Nostreamer
 	  	  return false;
 	  	}
     }
+	/*
     public function getMail()
     {
       return $this->mailNostreamer;
@@ -152,4 +156,5 @@ class Nostreamer
 		  $stmt->execute();
 		  $this->avatarNostreamer = $avatar;
     }
+		*/
 }

@@ -23,8 +23,8 @@
             </ul>
         </div>
         <div class="top-bar-right">
-            <img class="thumbnail " data-open="toggle" src="profile.jpg ">
-            <div class="large reveal" id="toggle" data-reveal aria-hidden="true" role="dialog">
+            <img class="thumbnail" data-open="toggle" src="profile.jpg ">
+            <div class="reveal xlarge" id="toggle" data-reveal>
                 <div style="float: right;" id="modal-form-login">
                     <h2>Connexion</h2>
                     <form class="form-horizontal" method="POST" action="" id="contact_form">

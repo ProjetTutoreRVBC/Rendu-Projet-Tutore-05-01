@@ -44,9 +44,12 @@ class HomeController extends Controller
           $user = new Nostreamer();
           $email = $_POST['_email'];
           $password = $_POST['_password'];
+          echo $user->signIn($email,$password);
+          if($user->signIn($email,$password) == true)
+            return $this->render('home/register.html.php');
         }
         
       }       
-      return $this->render('home/homepage.html.php');
+      return $this->render('View/homepageTest.html.php');
     }
 }

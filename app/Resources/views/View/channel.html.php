@@ -1,4 +1,4 @@
-<!-- app/Resources/views/View/channel.html.php-->  
+<!-- app/Resources/views/View/channel.html.php--> 
 <!doctype html>
 
 <head>
@@ -101,7 +101,7 @@
             <h2 style="right:250px;position:absolute;">MetallicaTV</h2>
         </div>
         <div style="float:left;height:60%;width:70%;padding:1px;border:1px solid;border-color:grey;">
-            <div style="margin-left:auto;margin-right:auto;background-color:red;">
+            <div style="text-align:center;margin-left:auto;margin-right:auto;">
                 <div style="height:125px;width:225px;display:inline-block;">
                     <div style="height:35px;overflow:hidden;">
                         <font size="2" class="titres"><strong>Metallica - Atlas, Rise! Teaser from Hardwired...To self Destruct</strong></font><br>
@@ -239,9 +239,31 @@
 
         </div>
         <div style="padding:1px;border-bottom:1px solid;border-color:grey;float:left;height:60%;width:30%">
-
+            <div style="margin-left:20px;margin-top:10px;height:200px;width:100%;overflow:hidden;">
+                <div>
+                    <img style="vertical-align:middle;width:75px;height:75px;" src="met.jpg">
+                    <span style="margin-left:10px;">MetallicaTV <small>via MetallicaStudio</small></span>
+                </div>
+                <div style="width:100%;">
+                    <p>Hardwired... To Self Destruct available everywhere ! Maras diaconus fucandae purpurae diaconus ut non et sermone celerari textrini pectoralem purpurae et Tyrii ad regale est inductus ad autem diaconus speciem idem fucandae denique
+                        vexatus vitae Christiani pectoralem inductus quaerebatur celerari celerari Maras vitae ministris ministris prolatae diaconus haec est regale indumentum vexatus non nihil textam pectoralem ad indumentum textrini fateri sermone Maras
+                        appellant purpurae diaconus ut etiam Tyrii vexatus ad idem confessisque usque perurgebant ministris litterae sermone Maras prolatae ad purpurae fucandae confessisque Christiani vitae quam idem praepositum speciem indicabant regale
+                        ad cuius ministris ut manicis usque ut fucandae Maras perurgebant confessisque ut litterae etiam quaerebatur sermone.
+                    </p>
+                </div>
+            </div>
+            <div style="margin-left:20px;margin-top:10px;height:200px;width:100%;overflow:hidden;">
+                <div>
+                    <img style="vertical-align:middle;width:75px;height:75px;" src="met.jpg">
+                    <span style="margin-left:10px;">MetallicaTV <small>via MetallicaStudio</small></span>
+                </div>
+                <div style="width:100%;">
+                    <p>Hardwired... To Self Destruct available everywhere ! Maras diaconus fucandae purpurae diaconus ut non et sermone celerari textrini pectoralem purpurae et Tyrii ad regale est inductus ad autem diaconus speciem idem fucandae denique
+                        vexatus vitae Christiani pectoralem inductus quaerebatur celerari celerari Maras vitae ministris ministris prolatae diaconus haec est regale indumentum vexatus non nihil textam pectoralem ad indumentum textrini fateri sermone Maras
+                        appellant purpurae diaconus ut etiam Tyrii vexatus ad idem confessisque usque perurgebant ministris litterae sermone Maras prolatae ad purpurae fucandae confessisque Christiani vitae quam idem praepositum speciem indicabant regale
+                        ad cuius ministris ut manicis usque ut fucandae Maras perurgebant confessisque ut litterae etiam quaerebatur sermone.
+                    </p>
+                </div>
+            </div>
         </div>
-
-    </div>
-
 </body>

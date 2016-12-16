@@ -11,21 +11,48 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
     <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/validation/form.js') ?>"></script>
     <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/display/upload.js') ?>"></script>
+    <script>
+      var width;
+      var type;
+      function myFunction() {
+          width =   500;
+          if(window.outerWidth < 850) {
+            type = "px";
+            
+            document.getElementById("videos").style.marginTop= "130px";
+            document.getElementById("images").style.left= "";
+            width = window.outerWidth - 350;
+          }
+          if(window.outerWidth < 550){
+            document.getElementById("videos").style.marginTop= "130px";
+            document.getElementById("liste").style.display= "block";
+            type="px";
+             width = 200;
+          }
+          
+          if(window.outerWidth < 550){
+            document.getElementById("videos").style.marginTop= "180px";
+            document.getElementById("images").style.left= "540px";
+          }
+          var x = window.outerWidth;
+          var y = window.outerHeight;
+          document.getElementById("afficher").innerHTML = x+ " "+y;
+          document.getElementById("search-bar").style.width = width+type;
+      }
+    </script>
 </head>
 
-<body>
-    <div class="top-bar"  style="position: fixed;width:100%;top:0;left:0;right:0;">
-          <div class="top-bar-left" >
-              <ul class="menu">
-                  <li><img class="top-bar-profile-pic" href="/homepage.html" src="/web/bundles/framework/images/logo.png "></li>
-                  <li><input type="search" placeholder="Search Here" style="margin-left:15px;width:500px;" ;></li>
-                  <li><button type="button" class="button">Search</button></li>
-              </ul>
-          </div>
-          <div class="top-bar-right">
-              <img class="thumbnail" data-open="toggle" src="/web/bundles/framework/images/profile.jpg ">
+<body onresize="myFunction()" onload="myFunction()"> 
+    <div class="top-bar"  style="position:fixed;width:100%;top:0px;padding:0px;font-size:0;">
+          <div id="top-bar-left"  style="font-size:0;">
+                <ul id="menu" class="menu">
+                    <li><img class="top-bar-profile-pic" href="/homepage.html" src="/web/bundles/framework/images/logo.png "></li>
+                    <li><input id ="search-bar" type="search" placeholder="Search Here" style="margin-left:15px;margin-right:0px;width:500px;height:40px;"></li>
+                    <li><button id="afficher" type="button" class="button" style="height:40px;">Search</button></li>
+                    <li  id ="images"  style="position:absolute;top:20px;right:20px;"><img style="width:27px;height:27px;" class="thumbnail" data-open="toggle" src="/web/bundles/framework/images/profile.jpg "></li>
+                </ul>
               <div class="reveal xlarge" id="toggle" data-reveal>
-                <div style="display: inline-block;">
+                <div style="display:inline-block;height:100%;width:100%;overflow:hidden;">
                   <div style="float: right;" id="modal-form-login">
                       <h2>Connexion</h2>
                       <form class="form-horizontal" method="POST" action="" id="contact_form">
@@ -98,56 +125,53 @@
                 </button>
               </div>
                 </div>
-          </div>
-            <ul class="tabs " data-tabs id="tabs_example" style="width:100%;display: inline-block;">
-              <li class="tabs-title "><a href="#tab2">Vidéastes</a></li>
-              <li class="tabs-title "><a href="#tab3 ">Chaînes</a></li>
-              <li class="tabs-title "><a href="#tab4 ">Actualité</a></li>
-              <li class="tabs-title "><a href="#tab5 ">Abonnements</a></li>
-              <li class="tabs-title is-active "><a href="#tab1">Tendances</a></li>
-            </ul>
+            </div>
+            <div id="liste" style="width:100%;display: inline-block;border-color: grey;border-style: solid; border-width: 1px 0px 1px 0px;">
+              <ul class="tabs " data-tabs id="tabs_example">
+                <li class="tabs-title "><a href="#tab2">Vidéastes</a></li>
+                <li class="tabs-title "><a href="#tab3 ">Chaînes</a></li>
+                <li class="tabs-title "><a href="#tab4 ">Actualité</a></li>
+                <li class="tabs-title "><a href="#tab5 ">Abonnements</a></li>
+                <li class="tabs-title is-active "><a href="#tab1">Tendances</a></li>
+              </ul>
+            </div>
         </div>
-        <div style="float: left;background: blue;width:10%;position:fixed;">
-          <img src="" alt="PUB" >  
-        </div>
-        <div style="float: right;background: blue;width:10%;position:fixed;">
-          <img src="" alt="PUB" >  
-        </div>
-        <div class="tabs-content " data-tabs-content="tabs_example" style="margin-top: 10%;border: solid yellow;margin-left:10%;margin-right:10%;">  
+        <div  id="videos" class="tabs-content " data-tabs-content="tabs_example"  style="margin-top:130px;">
         <!------------------------------------------------------------Section Tendances---------------------------->
-        <div class="tabs-panel is-active " id="tab1" style="height:100%;background: grey;text-align: center;">
-            <?php
-            for($i = 0; $i < 50; $i++)
-              {
-            echo '
-              <a href ="video">
-                <div style="height:125px;width:225px;display:inline-block;margin:4px;">
-                  <div style="height:35px;overflow:hidden;">
-                      <font size="2" class="titres"><strong>Metallica - Atlas, Rise! Teaser from Hardwired...To self Destruct</strong></font><br>
-                  </div>
-                  <img src="/web/bundles/framework/images/atlas.jpg " style="height:125px;width:225px;text-align:center;"><br>
-                  <div>
+          <div  class="tabs-panel is-active " id="tab1" >
+            <div class ="defilement-video" style="text-align: center;">
+              <?php
+              for($i = 0; $i < 50; $i++)
+                {
+              echo '
+                <a href ="video">
+                  <div style="height:125px;width:225px;display:inline-block;margin:4px;">
+                    <div style="height:35px;overflow:hidden;">
+                        <font size="2" class="titres"><strong>Metallica - Atlas, Rise! Teaser from Hardwired...To self Destruct</strong></font><br>
+                    </div>
+                    <img src="/web/bundles/framework/images/atlas.jpg " style="height:125px;width:225px;text-align:center;"><br>
+                    <div>
 
-                  </div>
+                    </div>
 
-                  <div style="width:225px;">
-                      <a href="channel" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
-                          <font size="1">MetallicaTV</font>
-                      </a>
-                      <a href="#" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
-                          <font size="1">Metallica Studio</font>
-                      </a>
-                  </div>
-                  <div style="text-align:center;">
-                      <font size="1 ">1 234 992 vues -</font>
-                      <font size="1 ">le 29/10/16</font>
-                  </div>
-              </div>
-            </a>';
-              }
-            ?>
-        </div>
-
+                    <div style="width:225px;">
+                        <a href="channel" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
+                            <font size="1">MetallicaTV</font>
+                        </a>
+                        <a href="#" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
+                            <font size="1">Metallica Studio</font>
+                        </a>
+                    </div>
+                    <div style="text-align:center;">
+                        <font size="1 ">1 234 992 vues -</font>
+                        <font size="1 ">le 29/10/16</font>
+                    </div>
+                </div>
+              </a>';
+                }
+              ?>
+            </div>  
+          </div>
         <!------------------------------------------------------------Section Vidéastes---------------------------->
 
         <div class="tabs-panel" id="tab2">

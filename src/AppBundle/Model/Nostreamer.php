@@ -49,7 +49,8 @@ class Nostreamer
 	  	$stmt->execute();
 	  	$res = $stmt->fetch();
 	  	if ($res['passNostreamer'] == $passNostreamer ) {
-	  		return true;
+				setcookie("pseudo",$res['pseudoNostreamer']);
+				return true;
 			}
 	  	if ($res['passNostreamer'] != $passNostreamer ) {
 	  	  return false;

@@ -21,9 +21,6 @@ security:
             guard:
                 authenticators:
                     - app.form_login_authenticator
-            logout:
-                path: /logout
-                target: /    
             # activate different ways to authenticate
 
             # http_basic: ~

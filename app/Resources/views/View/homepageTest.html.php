@@ -1,6 +1,5 @@
-<!-- app/Resources/views/View/homepageTest.html.php-->  
+<!-- app/Resources/views/View/homepageTest.html.php--> 
 <!doctype html>
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -14,118 +13,72 @@
     <script>
       var width;
       var type;
-      function myFunction() {
+      function handleWindow() {
           width =   500;
-          if(window.outerWidth < 850) {
+          document.getElementById("logIn").style.top= "17px";
+          document.getElementById("signIn").style.top= "6px";
+          document.getElementById("search-bar").style.marginLeft= "15px";
+        
+        if(window.outerWidth < 950) {
             type = "px";
+            document.getElementById("videos").style.marginTop= "130px";
+            document.getElementById("logo").style.display= "";
+            document.getElementById("logIn").style.display= "";
+            document.getElementById("signIn").style.display= "";
+            width = window.outerWidth - 465;
+        }
+          if(window.outerWidth < 660){
+            document.getElementById("videos").style.marginTop= "100px";
+            document.getElementById("logo").style.display= "none";
+            document.getElementById("logIn").style.top= "0px";
+            document.getElementById("signIn").style.top= "-11px";
             
-            document.getElementById("videos").style.marginTop= "130px";
-            document.getElementById("images").style.left= "";
-            width = window.outerWidth - 350;
-          }
-          if(window.outerWidth < 550){
-            document.getElementById("videos").style.marginTop= "130px";
-            document.getElementById("liste").style.display= "block";
             type="px";
-             width = 200;
+            width = 200;
+          }
+          if(window.outerWidth < 540){
+            
+            document.getElementById("videos").style.marginTop= "150px";
+            document.getElementById("liste").style.display= "block";
           }
           
-          if(window.outerWidth < 550){
-            document.getElementById("videos").style.marginTop= "180px";
-            document.getElementById("images").style.left= "540px";
+          if(window.outerWidth < 520){
+            document.getElementById("signIn").style.display= "none";
+            
           }
-          var x = window.outerWidth;
-          var y = window.outerHeight;
-          document.getElementById("afficher").innerHTML = x+ " "+y;
+          
+          if(window.outerWidth < 420){
+            document.getElementById("logIn").style.display= "none";
+            document.getElementById("search-bar").style.marginLeft= "40px";
+          }
+        
           document.getElementById("search-bar").style.width = width+type;
       }
     </script>
 </head>
 
-<body onresize="myFunction()" onload="myFunction()"> 
+<body onresize="handleWindow()" onload="handleWindow()"> 
     <div class="top-bar"  style="position:fixed;width:100%;top:0px;padding:0px;font-size:0;">
           <div id="top-bar-left"  style="font-size:0;">
                 <ul id="menu" class="menu">
-                    <li><img class="top-bar-profile-pic" href="/homepage.html" src="/web/bundles/framework/images/logo.png "></li>
-                    <li><input id ="search-bar" type="search" placeholder="Search Here" style="margin-left:15px;margin-right:0px;width:500px;height:40px;"></li>
-                    <li><button id="afficher" type="button" class="button" style="height:40px;">Search</button></li>
-                    <li  id ="images"  style="position:absolute;top:20px;right:20px;"><img style="width:27px;height:27px;" class="thumbnail" data-open="toggle" src="/web/bundles/framework/images/profile.jpg "></li>
+                    <li><img id="logo" class="top-bar-profile-pic" href="/homepage.html" src="/web/bundles/framework/images/logo.png "></li>
+                    <li><input id ="search-bar" type="search" placeholder="Search Here" style="margin-right:0px;width:500px;height:40px;"></li>
+                    <li><button id="afficher" type="button" class="button">Search</button></li>
+                    <li id="signIn"   style="position:absolute;right:100px;height:40xp;"  ><a href="register"><button type ="button" class="button" >Sign in</button></a></li>
+                    <li id ="logIn" style="position:absolute;right:20px;height:40xp;">
+                        <?php
+                          $href="login";
+                          $log="Log In";
+                          if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"]))
+                          {
+                            $href = "logout";
+                            $log = "Log Out";
+                          }    
+                          echo '<a href="'.$href.'" style="padding:0;">';
+                          echo '<button  id="log" type ="button" class="button" >'.$log.'</button></a>';
+                        ?>
+                    </li>
                 </ul>
-              <div class="reveal xlarge" id="toggle" data-reveal>
-                <div style="display:inline-block;height:100%;width:100%;overflow:hidden;">
-                  <div style="float: right;" id="modal-form-login">
-                      <h2>Connexion</h2>
-                      <form class="form-horizontal" method="POST" action="" id="contact_form">
-                          <div class="row">
-                              <div class="small-8 columns">
-                                  <div class="row">
-                                      <div class="small-3 columns">
-                                          <label>Pseudo</label>
-                                          <input name="_email" type="text" id="right-label" placeholder="pseudo">
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="small-8 columns">
-                                  <div class="row">
-                                      <div class="small-3 columns">
-                                          <label>Pass</label>
-                                          <input name="_password" type="password" id="right-label" placeholder="mot de passe">
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <button name="login" id="submitForm" class="expanded button" type="submit">Submit</button>
-                      </form>
-                  </div>
-                  <div style="float: left;">
-                      <h2>Inscription</h2>
-                      <form action="" method="POST">
-                      <fieldset>
-                              <div class="row">
-                                  <div class="large-4 columns">
-                                      <label>Adresse mail</label>
-                                      <input type="email" id="user_email" name="email" onchange="checkEmail();" required="required">
-                                      <i id="confirmMessageImg-email"></i>
-                                      <h2 id='result'></h2>
-                                  </div>
-                                  <div class="medium-4 columns">
-                                      <label>Date de naissance</label>
-                                      <input id="user_birth" name="user[birth]" required="required" type="date">
-                                  </div>
-                                  <div class="large-4 columns">
-                                      <label>Avatar</label>
-                                      <label for="exampleFileUpload" class="button">Upload File</label>
-                                       <input type='file' name="avatar" id="exampleFileUpload" class="show-for-sr" onchange="readURL(this);" />
-                                       <span id="display-parent" ></span> 
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="large-4 columns">
-                                      <label>Pseudo</label>
-                                      <input type="text" id="user_name" name="name"  onchange="checkName();" required="required">
-                                      <i id="confirmMessageImg-name"></i>
-                                     </div>
-                                  <div class="large-4 columns">
-                                      <label>Mot de passe</label>
-                                      <input type="password" id="user_plainPassword_first" name="passwd" onkeyup="checkPassImg(); return false;" required="required">
-                                  </div>
-                                  <div class="large-4 columns">
-                                      <label>Confirmez mot de passe</label>
-                                      <input type="password" id="user_plainPassword_second" name="user[plainPassword][second]" onkeyup="checkPassImg(); return false;" required="required">
-                                      <i id="confirmMessageImg-password"></i>
-                                  </div>
-                              </div>
-                          </fieldset>
-                          <button name="register" id="submit-button" class="expanded button" type="submit">Submit</button>
-                </div>
-                <button class="close-button" data-close aria-label="Close modal" type="button">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-                </div>
-            </div>
             <div id="liste" style="width:100%;display: inline-block;border-color: grey;border-style: solid; border-width: 1px 0px 1px 0px;">
               <ul class="tabs " data-tabs id="tabs_example">
                 <li class="tabs-title "><a href="#tab2">Vidéastes</a></li>
@@ -136,6 +89,7 @@
               </ul>
             </div>
         </div>
+      </div>
         <div  id="videos" class="tabs-content " data-tabs-content="tabs_example"  style="margin-top:130px;">
         <!------------------------------------------------------------Section Tendances---------------------------->
           <div  class="tabs-panel is-active " id="tab1" >

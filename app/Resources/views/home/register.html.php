@@ -1,2 +1,2 @@
 <?php
-echo "enregistre!";
+echo $_COOKIE["pseudo"];

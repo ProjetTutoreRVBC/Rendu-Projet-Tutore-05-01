@@ -110,6 +110,24 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
         }
 
+        // app_security_register
+        if ($pathinfo === '/register') {
+            return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::registerAction',  '_route' => 'app_security_register',);
+        }
+
+        if (0 === strpos($pathinfo, '/log')) {
+            // app_security_login
+            if ($pathinfo === '/login') {
+                return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::loginAction',  '_route' => 'app_security_login',);
+            }
+
+            // app_security_logout
+            if ($pathinfo === '/logout') {
+                return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::logoutAction',  '_route' => 'app_security_logout',);
+            }
+
+        }
+
         // app_video_index
         if ($pathinfo === '/video') {
             return array (  '_controller' => 'AppBundle\\Controller\\VideoController::indexAction',  '_route' => 'app_video_index',);

@@ -21,32 +21,44 @@
         <div>
           <form action="register" method="POST">
               <fieldset>
-                  <div class="row" style="text-align: center;">
-                    <div>
+                  <div class="row">
+                    <div style="float: left;width:95%;">
                       <label>Adresse mail</label>
                       <input type="email" id="user_email" name="email" onchange="checkEmail();" required="required">
-                    <div>
                     </div>
-                      <i id="confirmMessageImg-email"></i>
+                    <div  style="padding-top:6%;width:5%;float: right;">
+                      <i  id="confirmMessageImg-email"></i>
                     </div>
                   </div>
                   <div class="row">
-                    <label>Date de naissance</label>
-                    <input id="user_birth" name="user[birth]" required="required" type="date">
+                    <div style="width:95%;">
+                      <label>Date de naissance</label>
+                      <input id="user_birth" name="user[birth]" required="required" type="date">
+                    </div>  
                   </div>
                   <div class="row">
-                      <label>Pseudo</label>
-                      <input type="text" id="user_name" name="name"  onchange="checkName();" required="required">
-                      <i id="confirmMessageImg-name"></i>
+                      <div style="float: left;width:95%;">
+                        <label>Pseudo</label>
+                        <input type="text" id="user_name" name="name"  onchange="checkName();" required="required">
+                      </div>  
+                      <div  style="padding-top:6%;width:5%;float: right;">
+                        <i id="confirmMessageImg-name"></i>
+                      </div>  
                      </div>
                   <div class="row">
-                      <label>Mot de passe</label>
-                      <input type="password" id="user_plainPassword_first" name="passwd" onkeyup="checkPassImg(); return false;" required="required">
+                      <div style="width:95%;">
+                        <label>Mot de passe</label>
+                        <input type="password" id="user_plainPassword_first" name="passwd" onkeyup="checkPassImg(); return false;" required="required">
+                      </div>
                   </div>
                   <div class="row">
-                      <label>Confirmez mot de passe</label>
-                      <input type="password" id="user_plainPassword_second" name="user[plainPassword][second]" onkeyup="checkPassImg(); return false;" required="required">
-                      <i id="confirmMessageImg-password"></i>
+                      <div style="float: left;width:95%;">
+                        <label>Confirmez mot de passe</label>
+                        <input type="password" id="user_plainPassword_second" name="user[plainPassword][second]" onkeyup="checkPassImg(); return false;" required="required">
+                      </div>
+                      <div  style="padding-top:6%;width:5%;float: right;">
+                        <i id="confirmMessageImg-password"></i>
+                      </div>  
                   </div>
                   <div class="row">
                     <label>Avatar</label>
@@ -56,7 +68,7 @@
                   </div>
                   <br>
                   <div class="row">
-                    <button name="register" id="submit-button" class="expanded button" type="submit">Sign In</button>
+                    <button name="register" id="submit-button" class="expanded button" type="submit">Sign Up</button>
                   </div>  
               </fieldset>
           </form>

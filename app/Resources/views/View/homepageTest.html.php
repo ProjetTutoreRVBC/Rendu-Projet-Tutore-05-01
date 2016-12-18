@@ -15,24 +15,23 @@
       var type;
       function handleWindow() {
           width =   500;
-          document.getElementById("logIn").style.top= "17px";
-          document.getElementById("signIn").style.top= "6px";
           document.getElementById("search-bar").style.marginLeft= "15px";
-        
-        if(window.outerWidth < 950) {
+          document.getElementById("right-log").style.padding= "10px";
+          document.getElementById("left-search").style.padding= "2px";
+            document.getElementById("right-log").style.display= "";
+        if(window.outerWidth < 1000) {
             type = "px";
             document.getElementById("videos").style.marginTop= "130px";
             document.getElementById("logo").style.display= "";
             document.getElementById("logIn").style.display= "";
             document.getElementById("signIn").style.display= "";
-            width = window.outerWidth - 465;
+            width = window.outerWidth - 495;
         }
           if(window.outerWidth < 660){
             document.getElementById("videos").style.marginTop= "100px";
             document.getElementById("logo").style.display= "none";
-            document.getElementById("logIn").style.top= "0px";
-            document.getElementById("signIn").style.top= "-11px";
-            
+            document.getElementById("right-log").style.padding= "0px";
+            document.getElementById("left-search").style.padding= "10px";
             type="px";
             width = 200;
           }
@@ -42,12 +41,13 @@
             document.getElementById("liste").style.display= "block";
           }
           
-          if(window.outerWidth < 520){
+          if(window.outerWidth < 555){
             document.getElementById("signIn").style.display= "none";
-            
+            document.getElementById("right-log").style.padding= "3%";
           }
           
-          if(window.outerWidth < 420){
+          if(window.outerWidth < 460){
+            document.getElementById("right-log").style.display= "none";
             document.getElementById("logIn").style.display= "none";
             document.getElementById("search-bar").style.marginLeft= "40px";
           }
@@ -58,14 +58,19 @@
 </head>
 
 <body onresize="handleWindow()" onload="handleWindow()"> 
-    <div class="top-bar"  style="position:fixed;width:100%;top:0px;padding:0px;font-size:0;">
-          <div id="top-bar-left"  style="font-size:0;">
+    <div class="top-bar"  style="position:fixed;width:100%;top:0px;padding:0;">
+            <div style=";display: inline-block;width:100%;">
+              <div id="left-search" style="float:left;">
                 <ul id="menu" class="menu">
                     <li><img id="logo" class="top-bar-profile-pic" href="/homepage.html" src="/web/bundles/framework/images/logo.png "></li>
                     <li><input id ="search-bar" type="search" placeholder="Search Here" style="margin-right:0px;width:500px;height:40px;"></li>
                     <li><button id="afficher" type="button" class="button">Search</button></li>
-                    <li id="signIn"   style="position:absolute;right:100px;height:40xp;"  ><a href="register"><button type ="button" class="button" >Sign in</button></a></li>
-                    <li id ="logIn" style="position:absolute;right:20px;height:40xp;">
+                </ul>
+              </div>
+              <div id ="right-log" style="float:right;">
+                <ul id="menu" class="menu">
+                  <li id="signIn"   style="height:40xp;"  ><a href="register"><button type ="button" class="button" >Sign Up</button></a></li>
+                    <li id ="logIn" style="height:40xp;">
                         <?php
                           $href="login";
                           $log="Log In";
@@ -77,9 +82,11 @@
                           echo '<a href="'.$href.'" style="padding:0;">';
                           echo '<button  id="log" type ="button" class="button" >'.$log.'</button></a>';
                         ?>
-                    </li>
+                    </li>  
                 </ul>
-            <div id="liste" style="width:100%;display: inline-block;border-color: grey;border-style: solid; border-width: 1px 0px 1px 0px;">
+              </div>
+            </div>  
+            <div id="liste" class="liste" style="width:100%;display: inline-block;border-color: grey;border-style: solid; border-width: 1px 0px 1px 0px;">
               <ul class="tabs " data-tabs id="tabs_example">
                 <li class="tabs-title "><a href="#tab2">Vidéastes</a></li>
                 <li class="tabs-title "><a href="#tab3 ">Chaînes</a></li>
@@ -88,7 +95,6 @@
                 <li class="tabs-title is-active "><a href="#tab1">Tendances</a></li>
               </ul>
             </div>
-        </div>
       </div>
         <div  id="videos" class="tabs-content " data-tabs-content="tabs_example"  style="margin-top:130px;">
         <!------------------------------------------------------------Section Tendances---------------------------->

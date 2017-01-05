@@ -66,7 +66,7 @@
             <div class ="defilement-video" style="text-align: center;">
               <?php
               $id = "Metallica - Atlas, Rise! Teaser";
-              $vues = 234 432;
+              $vues = 234432;
               $titre="Metallica - Atlas, Rise! Teaser";
               $userChannel="MetallicaTV";
               $userPage="MetallicaStudio";
